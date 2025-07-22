@@ -1,13 +1,20 @@
-name: learn-github-actions
-run-name: ${{ github.actor }} is learning GitHub Actions
-on: [push]
+name: Download macOS Installer with Mist CLI
+
+on:
+  workflow_dispatch:
+
 jobs:
-  check-bats-version:
-    runs-on: ubuntu-latest
+  mist-download:
+    runs-on: macos-15
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - run: npm install -g bats
-      - run: bats -v
+      - name: Checkout (required even if empty)
+        uses: actions/checkout@v4
+
+      - name: Install mist-cli
+        run: |
+          brew tap ninxsoft/mist
+          brew install mist-cli
+
+      - name: List available macOS installers
+        run: |
+          mist list installer --include-betas
