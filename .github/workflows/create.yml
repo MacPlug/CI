@@ -1,4 +1,4 @@
-name: Download macOS Installer with Mist CLI
+name: Create
 
 on:
   workflow_dispatch:
@@ -12,7 +12,6 @@ jobs:
 
       - name: Install mist-cli
         run: |
-          brew tap ninxsoft/mist
           brew install mist-cli
 
       - name: List available macOS installers
