@@ -11,9 +11,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install mist-cli
-        run: |
-          brew install mist-cli
+        run: brew install mist-cli
 
       - name: List available macOS installers
-        run: |
-          mist list installer --include-betas
+        run: mist list installer --include-betas
