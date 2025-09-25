@@ -7,7 +7,7 @@ jobs:
   mist-download:
     runs-on: macos-15
     steps:
-      - name: Checkout (required even if empty)
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Install mist-cli
